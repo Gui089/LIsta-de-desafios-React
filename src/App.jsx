@@ -31,18 +31,18 @@ const cardsInfo = [
   },
 ];
 
+/* const getIds = cardsInfo.map((infoId) => infoId.id); */
+
 const App = () => {
-  const showId = () => {
-    cardsInfo.reduce((acc, info) => {
-      console.log(acc, info);
-    }, 0);
-  };
+  /* const showId = () => {
+    console.log(getIds[0]);
+  }; */
   return (
     <>
       <div className="flashcards">
         <ul style={{ listStyle: "none" }}>
           {cardsInfo.map((info) => (
-            <li onClick={showId} key={info.id}>
+            <li onClick={() => console.log(info.id)} key={info.id}>
               <h4 className="card">{info.question}</h4>
             </li>
           ))}
