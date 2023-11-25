@@ -1,25 +1,53 @@
-const Steps = () => (
-  <>
-    <div className="steps">
-      <button className="numbers active">1</button>
-      <button className="numbers">2</button>
-      <button className="numbers">3</button>
-
-      <div>
-        <h1 className="message">1: Passo entender o problema do cliente</h1>
-      </div>
-
-      <button className="buttons">Anterior</button>
-      <button className="buttons">Próximo</button>
-    </div>
-  </>
-);
+const cardsInfo = [
+  {
+    id: 7336,
+    question: "Do quê aplicações React são feitas?",
+    answer: "Componentes",
+  },
+  {
+    id: 8832,
+    question: "Qual é o nome da sintaxe usada para descrever UI no React?",
+    answer: "JSX",
+  },
+  {
+    id: 3457,
+    question: "Em qual linguagem o React é baseado?",
+    answer: "JavaScript",
+  },
+  {
+    id: 9103,
+    question: "Qual método usar para renderizar uma lista no React?",
+    answer: "map",
+  },
+  {
+    id: 1297,
+    question: "Qual empresa criou o React?",
+    answer: "Meta",
+  },
+  {
+    id: 2002,
+    question: "Como passar informações para um componente React?",
+    answer: "Através de props",
+  },
+];
 
 const App = () => {
+  const showId = () => {
+    cardsInfo.reduce((acc, info) => {
+      console.log(acc, info);
+    }, 0);
+  };
   return (
     <>
-      <button className="close">Fechar</button>
-      <Steps />
+      <div className="flashcards">
+        <ul style={{ listStyle: "none" }}>
+          {cardsInfo.map((info) => (
+            <li onClick={showId} key={info.id}>
+              <h4 className="card">{info.question}</h4>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App.jsx";
-import "../css/steps.css";
+import "../css/flashcards.css";
 
 const rootElement = document.querySelector('[data-js="root"]');
 
