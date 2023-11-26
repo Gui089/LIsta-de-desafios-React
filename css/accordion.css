@@ -20,6 +20,7 @@ body {
 }
 
 .item {
+  height: 180px;
   box-shadow: 0 0 30px #1d1d1d;
   padding: 20px 24px;
   padding-right: 48px;
@@ -48,4 +49,10 @@ body {
   grid-column: 2 / -1;
   padding-bottom: 16px;
   line-height: 1.6;
+}
+
+.answer {
+  font-size: 13px;
+  position: absolute;
+  margin-top: 90px;
 }
