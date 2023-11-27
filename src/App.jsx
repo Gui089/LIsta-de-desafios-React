@@ -55,37 +55,75 @@ const Header = () => (
   </div>
 );
 
-const Menu = () => (
-  <>
-    <div className="menu">
-      <h2>Cardápio</h2>
-      <p>
-        Depois de uma semana desafiadora, nada melhor do que saborear um burger
-        onde cada mordida é um abraço saboroso, não é mesmo?🍔✨
-      </p>
-    </div>
+const Menu = () => {
+  return (
+    burgers.length > 0 && (
+      <>
+        <div className="menu">
+          <h2>Cardápio</h2>
+          <p>
+            Depois de uma semana desafiadora, nada melhor do que saborear um
+            burger onde cada mordida é um abraço saboroso, não é mesmo?🍔✨
+          </p>
+        </div>
 
-    <div>
-      <ul className="burgers">
-        {burgers.map((burger) => {
-          return (
-            <li key={burger.name} className="burger">
-              <img src={burger.photoName} alt="Foto do Hamburger" />
-              <h3>{burger.name}</h3>
-              <p className="ingredients">{burger.ingredients}</p>
-            </li>
-          );
-        })}
-      </ul>
+        <div>
+          <ul className="burgers">
+            {burgers.map((burger) => {
+              return (
+                <li
+                  key={burger.name}
+                  className={
+                    burger.soldOut === false ? "burger" : "burger sold-out"
+                  }
+                >
+                  <img src={burger.photoName} alt="Foto do Hamburger" />
+                  <h3>{burger.name}</h3>
+                  <p className="ingredients">{burger.ingredients}</p>
+                  <span>R${burger.price}</span>
+                  <p className={burger.soldOut === true ? "pedido" : "hidden"}>
+                    CABOU
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </>
+    )
+  );
+};
+
+const Footer = () => {
+  const btnConsole = () => {
+    console.log("Estamos direcionando seu pedido...");
+  };
+
+  const dateNow = new Date();
+  console.log(dateNow.getHours());
+  return (
+    <div className="footer">
+      {dateNow.getHours() > 22 || dateNow.getHours() === 12 ? (
+        <p>🕛 Vamo abrir amanhã as 12h</p>
+      ) : (
+        <p>
+          🕛 Tamo aberto até as 22h. Vem visitar a gente ou faça seu pedido
+          online.
+        </p>
+      )}
+      <button onClick={btnConsole} className="btn">
+        Fazer pedido
+      </button>
     </div>
-  </>
-);
+  );
+};
 
 const App = () => {
   return (
     <>
       <Header />
       <Menu />
+      <Footer />
     </>
   );
 };

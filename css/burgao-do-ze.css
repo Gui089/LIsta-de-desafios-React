@@ -70,6 +70,7 @@ body {
 .burger {
   display: flex;
   gap: 3.2rem;
+  cursor: pointer;
 }
 
 .burger img {
@@ -120,6 +121,8 @@ body {
 
 .footer {
   font-size: 1.4rem;
+  margin-top: 5%;
+  margin-left: 29%;
 }
 
 .order {
@@ -140,8 +143,20 @@ body {
   cursor: pointer;
   transition: all 0.2s;
   border-radius: 30px;
+  margin-top: 20px;
+  margin-left: 23%;
 }
 
 .btn:hover {
   background-color: #e9bb24;
+}
+
+.hidden {
+  display: none;
+}
+
+.pedido {
+  position: absolute;
+  top: 86%;
+  left: 28%;
 }
