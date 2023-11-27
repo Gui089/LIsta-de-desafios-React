@@ -1,25 +1,45 @@
-const App = () => (
-  <div className="container">
-    <div className="count">
-      <button onClick={() => console.log("clicou no menos do intervalo")}>
-        -
+const Steps = () => {
+  const handleClickPrevius = (event) => {
+    console.log(event.target.textContent);
+  };
+
+  const handleClickNext = (event) => {
+    console.log(event.target.textContent);
+  };
+  return (
+    <>
+      <div className="steps">
+        <button className="numbers active">1</button>
+        <button className="numbers">2</button>
+        <button className="numbers">3</button>
+
+        <div>
+          <h1 className="message">1: Passo entender o problema do cliente</h1>
+        </div>
+
+        <button onClick={handleClickPrevius} className="buttons">
+          Anterior
+        </button>
+        <button onClick={handleClickNext} className="buttons">
+          Próximo
+        </button>
+      </div>
+    </>
+  );
+};
+
+const App = () => {
+  const handleClickToggle = (event) => {
+    console.log(event.target.textContent);
+  };
+  return (
+    <>
+      <button onClick={handleClickToggle} className="close">
+        Fechar
       </button>
-      <h2>Intervalo:1 </h2>
-      <button onClick={() => console.log("clicou no mais do intervalo")}>
-        +
-      </button>
-    </div>
-    <div className="count">
-      <button onClick={() => console.log("clicou no menos da contagem")}>
-        -
-      </button>
-      <h2>Contagem:0 </h2>
-      <button onClick={() => console.log("clicou no mais da contagem")}>
-        +
-      </button>
-    </div>
-    <h2>Hoje é Segunda-feira, 27 de novembro de 2023</h2>
-  </div>
-);
+      <Steps />
+    </>
+  );
+};
 
 export { App };
