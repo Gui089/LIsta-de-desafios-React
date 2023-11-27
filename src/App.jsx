@@ -1,43 +1,49 @@
-const Steps = () => {
-  const handleClickPrevius = (event) => {
-    console.log(event.target.textContent);
-  };
-
-  const handleClickNext = (event) => {
-    console.log(event.target.textContent);
-  };
-  return (
-    <>
-      <div className="steps">
-        <button className="numbers active">1</button>
-        <button className="numbers">2</button>
-        <button className="numbers">3</button>
-
-        <div>
-          <h1 className="message">1: Passo entender o problema do cliente</h1>
-        </div>
-
-        <button onClick={handleClickPrevius} className="buttons">
-          Anterior
-        </button>
-        <button onClick={handleClickNext} className="buttons">
-          Próximo
-        </button>
-      </div>
-    </>
-  );
-};
+const cardsInfo = [
+  {
+    id: 7336,
+    question: "Do quê aplicações React são feitas?",
+    answer: "Componentes",
+  },
+  {
+    id: 8832,
+    question: "Qual é o nome da sintaxe usada para descrever UI no React?",
+    answer: "JSX",
+  },
+  {
+    id: 3457,
+    question: "Em qual linguagem o React é baseado?",
+    answer: "JavaScript",
+  },
+  {
+    id: 9103,
+    question: "Qual método usar para renderizar uma lista no React?",
+    answer: "map",
+  },
+  {
+    id: 1297,
+    question: "Qual empresa criou o React?",
+    answer: "Meta",
+  },
+  {
+    id: 2002,
+    question: "Como passar informações para um componente React?",
+    answer: "Através de props",
+  },
+];
 
 const App = () => {
-  const handleClickToggle = (event) => {
-    console.log(event.target.textContent);
+  const showId = (id) => {
+    return console.log(id);
   };
   return (
     <>
-      <button onClick={handleClickToggle} className="close">
-        Fechar
-      </button>
-      <Steps />
+      <ul className="flashcards" style={{ listStyle: "none" }}>
+        {cardsInfo.map((info) => (
+          <li onClick={() => showId(info.id)} key={info.id}>
+            <h4 className="card">{info.question}</h4>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
